@@ -1,8 +1,5 @@
 #include <gtest/gtest.h>
 
-#include "fixture.h"
-#include "MyTestSuite.h"
-
 namespace mylib
 {
 	template<typename FixtureType>
