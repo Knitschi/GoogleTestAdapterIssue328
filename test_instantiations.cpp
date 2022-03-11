@@ -1,10 +1,47 @@
 #include <gtest/gtest.h>
 
-#include <MyTests/fixture.h>
-#include <MyTests/MyTestSuite.h>
+#include "fixture.h"
+#include "MyTestSuite.h"
 
 namespace mylib
 {
+	template<typename FixtureType>
+	class MyTestSuite : public ::testing::Test, public FixtureType {};
+
+	TYPED_TEST_SUITE_P(MyTestSuite);
+
+	TYPED_TEST_P(MyTestSuite, Test1)
+	{
+		EXPECT_TRUE(getTrue());
+	}
+
+	TYPED_TEST_P(MyTestSuite, Test2)
+	{
+		EXPECT_TRUE(getTrue());
+	}
+
+	REGISTER_TYPED_TEST_SUITE_P(
+		MyTestSuite,
+		Test1,
+		Test2);
+
+	class MyFixture1
+	{
+	public:
+		bool getTrue()
+		{
+			return true;
+		}
+	};
+
+	class MyFixture2
+	{
+	public:
+		bool getTrue()
+		{
+			return true;
+		}
+	};
 
 	INSTANTIATE_TYPED_TEST_SUITE_P(
 		MyTestSuite_MyFixture1,
