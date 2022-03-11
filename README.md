@@ -19,7 +19,7 @@ cmake -H. -B build -G "Visual Studio 16 2019"
 ```
 
 * Open the Visual Studio solution in the generated build directory.
-* Build the MyTests project.
+* Build the ```MyTests``` project.
 * Open the Test Explorer and click on one of the 4 test cases.
 * -> Visual Studio will no longer respond to any user input.
 
